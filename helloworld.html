@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Sam Whang, a software consultant and developer.">
+        <link rel="stylesheet" href="./assets/css/knockout.css">
+        <title>Biography: Sam Whang</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="./assets/knockout-latest.js"></script>
+        <div class='liveExample'>   
+                <p>First name: <input data-bind='value: firstName' /></p> 
+                <p>Last name: <input data-bind='value: lastName' /></p> 
+                <h2>Hello, <span data-bind='text: fullName'> </span>!</h2>  
+        </div>
+        <script>
+        var ViewModel = function(first, last) {
+            this.firstName = ko.observable(first);
+            this.lastName = ko.observable(last);
+         
+            this.fullName = ko.computed(function() {
+                // Knockout tracks dependencies automatically. It knows that fullName depends on firstName and lastName, because these get called when evaluating fullName.
+                return this.firstName() + " " + this.lastName();
+            }, this);
+        };
+         
+        ko.applyBindings(new ViewModel("Planet", "Earth")); // This makes Knockout get to work
+        </script>
+    </body>
+
+</html>

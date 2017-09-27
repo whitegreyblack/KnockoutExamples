@@ -1,3 +1,5 @@
+// Basic framework to get electron working in order to view Knockout Examples
+
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow

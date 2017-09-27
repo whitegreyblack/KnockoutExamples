@@ -6,7 +6,7 @@ const BrowserWindow = electron.BrowserWindow
 let mainWindow
 function createWindow() {
     mainWindow = new BrowserWindow({width: 800, height: 600, minWidth: 800, minHeight: 600})
-    mainWindow.loadURL(`file://${__dirname}/helloworld.html`)
+    mainWindow.loadURL(`file://${__dirname}/`+process.argv.slice(2)[0])
     mainWindow.on('closed', function() {
         mainWindow = null
     })

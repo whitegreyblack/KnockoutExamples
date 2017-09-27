@@ -1,4 +1,6 @@
 # Makefile
 
 build:
-	electron .
+	electron . helloworld.html
+
+build-helloworld: build

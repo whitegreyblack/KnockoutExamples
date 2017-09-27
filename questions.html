@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Knockout Examples: Custom Bindings">
+        <link rel="stylesheet" href="./assets/css/knockout.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">        
+        <title>Knockout Examples: Custom Bindings</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="./assets/knockout-3.4.2.js"></script>
+        <h1>Knockout Examples: Custom Bindings</h1>
+        <div class='liveExample'>
+            <h3 data-bind="text: question"></h3>
+            <p>Please distribute <b data-bind="text: budget"></b> points between the following options</p>
+        </div>
+
+        <script>
+        function Answer(text) { this.text = text; this.points = ko.observable();
+        }
+
+        function Survey(question, points, answers) {
+            this.question = question;
+            this.budget = points;
+            this.answers = $.map(answers, function(text) { return new Answer(text) });
+            this.save = function() { alert('To Do'); };
+
+            this.used = ko.computed(function() {
+                var total = 0;
+                for (var i = 0; i < this.answers.length; i++) 
+                    total += this.answers[i].points();
+                return total;
+            }, this);
+        }
+        ko.applyBindings(new Survey(
+            "Which factors affect your technology choices?", 10, [
+                "Functionality, compatibility, pricing - all that boring stuff",
+                "How often it is mentioned on Hacker News",    
+                "Number of gradients/dropshadows on project homepage",        
+                "Totally believable testimonials on project homepage"
+            ]));
+        </script>
+    </body>
+</html>

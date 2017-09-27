@@ -1,15 +1,19 @@
 # Makefile
 
 build:
+	electron . examples.html
+
+hello:
 	electron . helloworld.html
 
-build-helloworld: build
-
-build-lists:
+lists:
 	electron . collections.html
 
-build-email:
+email:
 	electron . email.html
 
-build-fira:
+fira:
 	electron . firacode.html
+
+bind:
+	electron . questions.html

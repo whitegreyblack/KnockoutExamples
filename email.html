@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Knockout Examples: Single Page App">
+        <!-- <link rel="stylesheet" href="./assets/css/knockout.css"> -->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">        
+        <title>Knockout Example: Email App</title>
+    </head>
+    <body>
+        <!-- Folders -->
+        <div>
+        <ul data-bind="foreach: folders">
+                <li><button data-bind="$data"></button></li>
+        </ul>
+        </div>
+        <!-- <script src="./assets/sammy-latest.js" type="text/javascript"></script> -->
+        <script>
+        function Webmail() {
+            var self = this;
+            self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+            // self.folderId = ko.observable();
+            // self.folderData = ko.observable();
+            // self.mailData = ko.observable();
+
+            // self.goToFolder = function(folder) { location.has = folder };
+            // self.goToMail = function(mail) { location.hash = mail.folder + '/' + mail.id };
+
+            // Sammy(function() {
+            //     this.get('#:folder', function() {
+            //         self.folderId(this.params.folder);
+            //         self.mailData(null);
+            //         $.get("/mail", { folder: this.params.folder }, self.folderData);
+            //     });
+
+            //     this.get('#:folder/:mailId', function() {
+            //         self.folderId(this.params.folder);
+            //         self.folderData(null);
+            //         $.get("/mail", { mailId: this.params.mailID }, self.mailData);
+            //     });
+
+            //     this.get('', function() { this.app.runRoute('get', '#Inbox' )});
+            // }).run();
+        };
+
+        ko.applyBindings(new Webmail()); // This makes Knockout get to work
+        </script>
+    </body>
+
+</html>

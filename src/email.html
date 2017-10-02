@@ -9,16 +9,25 @@
     </head>
     <body>
         <script type="text/javascript" src="../assets/knockout-latest.js"></script>
-
-        <!-- Folders -->
-        <div>
-            <ul class="navbar" data-bind="foreach: folders">
-                    <button data-bind="text: $data, 
-                                    css: { selected: $data == $root.folderId() },
-                                    click: $root.changeFolder"></button>
-            </ul>
-        </div>
-        <!-- <script src="./assets/sammy-latest.js" type="text/javascript"></script> -->
+        <script type="text/javascript" src="../assets/sammy-latest.min.js"></script>
+        <script type="text/javascript" src="../assets/jquery-3.2.1.min.js"></script>
+        <!-- Folders -->        
+        <ul class="liveExample" data-bind="foreach: folders">
+                <button data-bind="text: $data, 
+                                css: { selected: $data == $root.folderId() },
+                                click: $root.changeFolder"></button>
+        </ul>
+        <!-- Mail -->
+        <table class="mails" data-bind="with: folderData">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+        </table>
+        
         <script>
         function Webmail() {
             var self = this;

@@ -17,3 +17,6 @@ fira:
 
 bind:
 	electron . src/questions.html
+
+animate:
+	electron . src/animated.html

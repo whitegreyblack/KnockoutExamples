@@ -18,13 +18,13 @@
                 <button data-bind="click: capitalizeLastName">Last Name</button>
                 <button data-bind="click: capitalizeFirstName">First Name</button>
                 <button data-bind="click: capitalizeFullName">Full Name</button>
-            </div>
-            <div class='liveExample'>
-                <span>Reset: </span>        
-                <button data-bind="click: resetLastName">Last Name</button>
-                <button data-bind="click: resetFirstName">First Name</button>
-                <button data-bind="click: resetFullName">Full Name</button>
-            </div>
+        </div>
+        <div class='liveExample'>
+            <span>Reset: </span>        
+            <button data-bind="click: resetLastName">Last Name</button>
+            <button data-bind="click: resetFirstName">First Name</button>
+            <button data-bind="click: resetFullName">Full Name</button>
+        </div>
         <script>
         var ViewModel = function(first, last) {
             this.firstName = ko.observable(first);
